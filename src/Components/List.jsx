@@ -1,15 +1,12 @@
 import React from 'react'
-import moment from "moment";
-import styles from "./Card.module.css"
+import styles from "./List.module.css"
+import moment from "moment"
 import {Link} from "react-router-dom"
 
-
-export const Card = ({vehicle_type_code1, vehicle_type_code2, crash_date, crash_time, on_street_name, collision_id}) => {
+export const List = ({vehicle_type_code1, vehicle_type_code2, crash_date, crash_time, on_street_name, collision_id}) => {
     return (
         <Link to={`/vehicle/${collision_id}`} style={{ textDecoration: 'none' }} >
-            <div className={styles.card}>
-                <div className={styles.bgImage}>
-                    <div className={styles.content}>
+           <div className={styles.content}>
                         <div>
                             <main>Vehicle 1</main>
                             <div>{vehicle_type_code1}</div>
@@ -22,12 +19,17 @@ export const Card = ({vehicle_type_code1, vehicle_type_code2, crash_date, crash_
                         )}
                         </div>
                         <div>
-                            <main>{`Date: `}{moment(crash_date).format("MM-DD-YYYY")}</main>
-                            <main>{`Time: ${crash_time}`}</main>
+                            <div className={styles.dateTime}>
+                                <main>Date: </main>
+                                <div>{moment(crash_date).format("MM-DD-YYYY")}</div>
+                            </div>
+                            <div className={styles.dateTime}>
+                                <main>Time: </main>
+                                <div>{crash_time}</div>
+                            </div>
+                            
                         </div>
                     </div>
-                </div>
-            </div>
         </Link>
     )
 }

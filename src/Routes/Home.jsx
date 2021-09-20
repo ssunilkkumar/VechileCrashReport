@@ -7,6 +7,7 @@ import axios from "axios";
 import moment from "moment";
 import { Grid } from '@material-ui/core';
 import { Card } from '../Components/Card';
+import { List } from '../Components/List';
 
 export const Home = () => {
     const [startDate, setStartDate] = useState(null);
@@ -14,6 +15,7 @@ export const Home = () => {
     const [data, setData]= useState([]);
     const [totalPages, setTotalPages] = useState(null);
     const [pages, setPages] = useState(1);
+    const [view, setView] = useState("false");
 
     function handleData(startDate, pages) {
         console.log(startDate, pages);
@@ -72,11 +74,12 @@ export const Home = () => {
                     />
                 </div>
                 <div>
-                    <BasicPagination totalPages={totalPages} handlePage={handlePage}/>
+                    <BasicPagination totalPages={totalPages} handlePage={handlePage} handleView={(value) => setView(value)}/>
                 </div>
             </div>
             <div className="container">
-                <Grid container spacing={2}>
+                {view === "false" && (
+                    <Grid container spacing={2}>
                     {
                         data?.map(value => (
                             <Grid md={4} lg={3} xl={2} sm={6} xs={12} item key={value.collision_id}>
@@ -85,6 +88,16 @@ export const Home = () => {
                         ))
                     }
                 </Grid>
+                )}
+                {view === "true" && (
+                    <Grid>
+                    {
+                        data?.map(value => (
+                            <List {...value} />
+                        ))
+                    }
+                    </Grid>
+                )}
             </div>
         </div>
     )

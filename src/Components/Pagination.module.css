@@ -4,3 +4,8 @@
     background-color: rgb(202, 245, 247);
     padding: 3px;
 }
+.list * {
+    margin: 10px;
+    size: 18px;
+    cursor: pointer;
+}
