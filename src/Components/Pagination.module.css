@@ -1,6 +1,6 @@
 .flex {
     display: flex;
     justify-content: space-between;
-    background-color: beige;
+    background-color: rgb(202, 245, 247);
     padding: 3px;
 }
