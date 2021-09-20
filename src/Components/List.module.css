@@ -5,7 +5,7 @@
     gap: 20px;
     text-align: left;
     padding: 20px 20px;
-    height: 80px;
+    min-height: 80px;
     border-radius: 7px;
     color: white;
     transition: all 1s ease;
