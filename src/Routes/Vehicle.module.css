@@ -1,0 +1,18 @@
+.contentHead {
+    display: flex;
+    justify-content: space-around;
+    text-align: left;
+    padding: 10px;
+    background: #26a69a;
+    margin-bottom: 10px;
+    border-radius: 7px;
+    color: white;
+}
+.contentHead main {
+    font-size: 20px;
+}
+.box {
+    width: 90%;
+    margin: auto;
+    margin-top: 20px;
+}
